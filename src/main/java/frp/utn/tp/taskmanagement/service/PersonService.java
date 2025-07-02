@@ -1,6 +1,7 @@
 package frp.utn.tp.taskmanagement.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -41,6 +42,10 @@ public class PersonService {
     
     public List<Person> list(Pageable pageable) {
         return personRepository.findAllBy(pageable).toList();
+    }
+
+    public Optional<Person> findById(Long id) {
+        return personRepository.findById(id);
     }
     
 }

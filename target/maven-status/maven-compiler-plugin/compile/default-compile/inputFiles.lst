@@ -1,39 +1,39 @@
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/Application.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/domain/AbstractEntity.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/domain/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/component/ViewToolbar.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/component/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/view/MainErrorHandler.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/view/MainLayout.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/view/MainView.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/base/ui/view/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/AppRoles.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/AppUserInfo.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/AppUserPrincipal.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/CommonSecurityConfig.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/CurrentUser.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/controlcenter/ControlCenterSecurityConfig.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/controlcenter/OidcUserAdapter.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/controlcenter/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/DevLoginView.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/DevSecurityConfig.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/DevUser.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/DevUserDetailsService.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/DevUserInfo.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/SampleUsers.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/dev/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/domain/UserId.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/domain/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/security/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/domain/Person.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/domain/PersonRepository.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/domain/Task.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/domain/TaskRepository.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/domain/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/service/PersonService.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/service/TaskService.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/service/package-info.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/ui/view/PersonListView.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/ui/view/TaskListView.java
-/home/TUP/Escritorio/Projects/TUP/todo-app/src/main/java/frp/utn/tp/taskmanagement/ui/view/package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\Application.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\domain\AbstractEntity.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\domain\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\component\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\component\ViewToolbar.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\view\MainErrorHandler.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\view\MainLayout.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\view\MainView.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\base\ui\view\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\AppRoles.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\AppUserInfo.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\AppUserPrincipal.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\CommonSecurityConfig.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\controlcenter\ControlCenterSecurityConfig.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\controlcenter\OidcUserAdapter.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\controlcenter\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\CurrentUser.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\DevLoginView.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\DevSecurityConfig.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\DevUser.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\DevUserDetailsService.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\DevUserInfo.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\dev\SampleUsers.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\domain\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\domain\UserId.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\security\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\domain\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\domain\Person.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\domain\PersonRepository.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\domain\Task.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\domain\TaskRepository.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\service\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\service\PersonService.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\service\TaskService.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\ui\view\package-info.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\ui\view\PersonListView.java
+C:\TUP 2025\PROG 3\TP\TP_Final_Prog3\src\main\java\frp\utn\tp\taskmanagement\ui\view\TaskListView.java

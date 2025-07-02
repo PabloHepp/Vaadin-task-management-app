@@ -21,15 +21,20 @@ import com.vaadin.flow.component.orderedlayout.FlexComponent;
 import com.vaadin.flow.component.orderedlayout.HorizontalLayout;
 
 import com.vaadin.flow.component.textfield.TextField;
+import com.vaadin.flow.router.BeforeEnterEvent;
+import com.vaadin.flow.router.BeforeEnterObserver;
 import com.vaadin.flow.router.Menu;
 import com.vaadin.flow.router.PageTitle;
 import com.vaadin.flow.router.Route;
+import com.vaadin.flow.router.QueryParameters;
 import com.vaadin.flow.theme.lumo.LumoUtility;
 import jakarta.annotation.security.PermitAll;
 
 import java.time.Clock;
 import java.time.format.DateTimeFormatter;
 import java.time.format.FormatStyle;
+import java.util.List;
+import java.util.Map;
 import java.util.Optional;
 
 import static com.vaadin.flow.spring.data.VaadinSpringDataHelpers.toSpringPageRequest;
@@ -37,20 +42,18 @@ import static com.vaadin.flow.spring.data.VaadinSpringDataHelpers.toSpringPageRe
 @Route("task-list")
 @PageTitle("Lista de Tareas")
 @Menu(order = 1, icon = "vaadin:tasks", title = "Lista de Tareas")
-@PermitAll // When security is enabled, allow all authenticated users
-public class TaskListView extends Main {
+@PermitAll
+public class TaskListView extends Main implements BeforeEnterObserver {
 
     private final TaskService taskService;
     private final PersonService personService;
-    private final Person nulo = null;
 
     final TextField description;
-    final ComboBox<Person> personCombo;
+    final ComboBox<Person> personCombo; // Este es tu ComboBox de filtro de personas
     final DatePicker dueDate;
     final Button createBtn;
     final Button allTasksBtn;
     final Grid<Task> taskGrid;
-
 
     public TaskListView(TaskService taskService, PersonService personService, Clock clock) {
         this.taskService = taskService;
@@ -62,24 +65,23 @@ public class TaskListView extends Main {
         description.setMaxLength(Task.DESCRIPTION_MAX_LENGTH);
         description.setMinWidth("20em");
 
-        personCombo = new ComboBox<Person>("Selecciona una persona");
+        personCombo = new ComboBox<Person>("Filtrar tareas por persona...");
         personCombo.setWidth("200px");
         personCombo.setItems(query -> personService.list(toSpringPageRequest(query)).stream());
         personCombo.setItemLabelGenerator( person -> {
+                if(person == null) return "Todas las Tareas"; // Texto cuando no hay persona seleccionada
                 return person.toString();
         });
         personCombo.addValueChangeListener(event -> {
-                cargarTasks();
+            cargarTasks(); // Se llama a cargarTasks cada vez que el valor del ComboBox cambia
         });
-        //
+        
         dueDate = new DatePicker("Fecha Límite");
         dueDate.setPlaceholder("dd/mm/aaaa");
         dueDate.setAriaLabel("Fecha Límite");
 
         HorizontalLayout formTask = new HorizontalLayout();
-
         formTask.add(description,personCombo,dueDate);
-
 
         var dateTimeFormatter = DateTimeFormatter.ofLocalizedDateTime(FormatStyle.MEDIUM).withZone(clock.getZone())
                 .withLocale(getLocale());
@@ -93,17 +95,19 @@ public class TaskListView extends Main {
 
         allTasksBtn = new Button("Ver Todas las Tareas", new Icon(VaadinIcon.CLIPBOARD_TEXT) ,
                 event -> {
-                        personCombo.setValue(null);
-                        cargarTasks();
+                        personCombo.setValue(null); // Establece el ComboBox a nulo
+                        //Llama a cargarTasks() explícitamente para asegurar la recarga
+                        cargarTasks(); 
                 });
         allTasksBtn.setWidth("200px");
         allTasksBtn.addThemeVariants(ButtonVariant.LUMO_SUCCESS);
         buttons.add(createBtn, allTasksBtn);
         buttons.setJustifyContentMode(FlexComponent.JustifyContentMode.BETWEEN);
 
-
         taskGrid = new Grid<>();
-        cargarTasks();
+        
+        // La carga inicial de datos se manejará en beforeEnter para considerar los parámetros de URL.
+                
         taskGrid.addComponentColumn(task -> {
                 Checkbox checkbox = new Checkbox(task.isDone());
                 checkbox.addValueChangeListener(event -> {
@@ -126,7 +130,7 @@ public class TaskListView extends Main {
 
                         Button deleteDlgButton = new Button("Borrar", (e) -> {
                                 taskService.deleteTask(task.getId());
-                                cargarTasks();
+                                cargarTasks(); // Refresca la grilla después de eliminar
                                 dialog.close();
                         });
                         deleteDlgButton.addThemeVariants(ButtonVariant.LUMO_PRIMARY, ButtonVariant.LUMO_ERROR);
@@ -145,8 +149,6 @@ public class TaskListView extends Main {
                 return deleteButton;
         }).setHeader("Borrar");
 
-
-
         taskGrid.setSizeFull();
 
         setSizeFull();
@@ -157,7 +159,6 @@ public class TaskListView extends Main {
         add(formTask);
         add(buttons);
         add(taskGrid);
-        
     }
 
     private void createTask() {
@@ -168,14 +169,51 @@ public class TaskListView extends Main {
         Notification.show("Tarea Agregada", 3000, Notification.Position.BOTTOM_END)
                 .addThemeVariants(NotificationVariant.LUMO_SUCCESS);
     }
+    
+    // Este método es clave para la lógica de filtrado/mostrar todas
     private void cargarTasks(){
-        Person person = personCombo.getValue();
+        Person person = personCombo.getValue(); // Obtiene la persona seleccionada en el ComboBox
         if( person != null) {
-                taskGrid.setItems(taskService.findByPerson(person));
+            taskGrid.setItems(taskService.findByPerson(person));
         } else {
-                taskGrid.setItems(query -> taskService.list(toSpringPageRequest(query)).stream());
+            taskGrid.setItems(query -> taskService.list(toSpringPageRequest(query)).stream());
         }
-
     }
 
+    @Override
+    public void beforeEnter(BeforeEnterEvent event) {
+        QueryParameters queryParameters = event.getLocation().getQueryParameters();
+        Map<String, List<String>> parametersMap = queryParameters.getParameters();
+
+        if (parametersMap.containsKey("personId")) {
+            List<String> personIds = parametersMap.get("personId");
+            if (!personIds.isEmpty()) {
+                try {
+                    Long personId = Long.parseLong(personIds.get(0));
+                    Optional<Person> personOptional = personService.findById(personId);
+
+                    if (personOptional.isPresent()) {
+                        Person personToFilter = personOptional.get();
+                        // Al establecer el valor en el ComboBox, su ValueChangeListener llamará a cargarTasks().
+                        personCombo.setValue(personToFilter);
+                    } else {
+                        Notification.show("Persona no encontrada con ID: " + personId, 3000, Notification.Position.BOTTOM_START)
+                                .addThemeVariants(NotificationVariant.LUMO_ERROR);
+                        // Si la persona no existe, se aseguran que se muestren todas las tareas
+                        personCombo.setValue(null); // Esto también llamará a cargarTasks()
+                    }
+                } catch (NumberFormatException e) {
+                    Notification.show("ID de persona inválido.", 3000, Notification.Position.BOTTOM_START)
+                            .addThemeVariants(NotificationVariant.LUMO_ERROR);
+                    // Si el ID es inválido, se aseguran que se muestren todas las tareas
+                    personCombo.setValue(null); // Esto también llamará a cargarTasks()
+                }
+            }
+        } else {
+            // Si NO hay parámetro personId en la URL al cargar la vista,
+            // nos aseguramos de que el ComboBox no tenga una persona seleccionada.
+            // Esto provocará que cargarTasks() se ejecute y muestre TODAS las tareas por defecto.
+            personCombo.setValue(null); 
+        }
+    }
 }
