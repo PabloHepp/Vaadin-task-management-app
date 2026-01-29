@@ -9,8 +9,7 @@ __Lic. Ernesto Zapata Icart__
 __Ing. Mariano Carpio__  
 __Lic. Rodolfo Schönals-Fisher__  
 
-### Alumnos:  
-Gonzalez, Juan Manuel  
+### Alumno:
 Hepp, Pablo   
 
 ##### Año 2025  
