@@ -45,17 +45,17 @@ Este proyecto demuestra mi aprendizaje en **desarrollo backend con Java, integra
 El proyecto sigue una **arquitectura en capas**:
 
 com.prueba.todotp
-├── base
-│ ├── domain # Entidades base
-│ └── ui # Layout y navegación principal
-│
-├── taskmanagement
-│ ├── domain # Entidades JPA (Task, Persona)
-│ ├── repository # Repositorios Spring Data
-│ ├── service # Lógica de negocio
-│ └── ui.view # Vistas Vaadin
-│
-└── Application.java
+ ├── base
+ │   ├── domain        # Entidades base y clases comunes
+ │   └── ui             # Layout principal, navegación y componentes UI compartidos
+ │
+ ├── taskmanagement
+ │   ├── domain          # Entidades JPA (Task, Persona)
+ │   ├── repository      # Repositorios Spring Data JPA
+ │   ├── service          # Lógica de negocio (TaskService, PersonaService)
+ │   └── ui.view           # Vistas Vaadin (TaskListView, PersonaView)
+ │
+ └── Application.java      # Clase principal Spring Boot
 
 **Principio clave aplicado:**  
 👉 *Las vistas NO acceden directamente a los repositorios, sino a servicios (clean architecture).*
