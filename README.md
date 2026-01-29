@@ -42,8 +42,9 @@ Este proyecto demuestra mi aprendizaje en **desarrollo backend con Java, integra
 
 ##  Arquitectura del proyecto
 
-El proyecto sigue una **arquitectura en capas**:
+El proyecto sigue una arquitectura en capas:
 
+```text
 com.prueba.todotp
  ├── base
  │   ├── domain        # Entidades base y clases comunes
