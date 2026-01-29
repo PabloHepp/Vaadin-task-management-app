@@ -40,7 +40,7 @@ Este proyecto demuestra mi aprendizaje en **desarrollo backend con Java, integra
 
 ---
 
-## 🏗 Arquitectura del proyecto
+##  Arquitectura del proyecto
 
 El proyecto sigue una **arquitectura en capas**:
 
