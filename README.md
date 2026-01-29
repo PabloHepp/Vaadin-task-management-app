@@ -1,15 +1,75 @@
-# TRABAJO PRACTICO  
+## Todo Management System – Vaadin + Spring Boot
 
-## Cátedra: Programación 3  
+Aplicación web full-stack desarrollada con **Java, Spring Boot y Vaadin Flow**, como parte de un trabajo práctico académico, con el objetivo de aplicar arquitectura por capas, JPA, servicios y UI empresarial moderna.
 
-## U.T.N. - Regional Paraná  
+Este proyecto demuestra mi aprendizaje en **desarrollo backend con Java, integración con frontend en Vaadin, arquitectura limpia y persistencia con JPA/Hibernate**.
 
-### Docentes:   
-__Lic. Ernesto Zapata Icart__  
-__Ing. Mariano Carpio__  
-__Lic. Rodolfo Schönals-Fisher__  
 
-### Alumno:
-Hepp, Pablo   
+# Tecnologías utilizadas
 
-##### Año 2025  
+- **Java 21**
+- **Spring Boot 3**
+- **Vaadin Flow 24**
+- **Spring Data JPA**
+- **Hibernate ORM**
+- **Base de datos H2 (en memoria)**
+- **Maven**
+- **Arquitectura en capas (Domain, Service, UI)**
+
+---
+
+# Funcionalidades implementadas
+
+## Gestión de Tareas (Tasks)
+- Listado de tareas
+- Creación, edición y eliminación
+- Persistencia con JPA
+- Relación con Persona (Many-to-One)
+
+## Gestión de Personas
+- Listado de personas
+- Alta, baja y modificación
+- Relación One-to-Many con tareas
+
+## UI Empresarial con Vaadin
+- Navegación lateral con `SideNav`
+- Vistas separadas (`TaskListView`, `PersonaView`)
+- Layout principal con `AppLayout`
+- Formularios interactivos
+- Grid con edición y selección
+
+---
+
+## 🏗 Arquitectura del proyecto
+
+El proyecto sigue una **arquitectura en capas**:
+
+com.prueba.todotp
+├── base
+│ ├── domain # Entidades base
+│ └── ui # Layout y navegación principal
+│
+├── taskmanagement
+│ ├── domain # Entidades JPA (Task, Persona)
+│ ├── repository # Repositorios Spring Data
+│ ├── service # Lógica de negocio
+│ └── ui.view # Vistas Vaadin
+│
+└── Application.java
+
+**Principio clave aplicado:**  
+👉 *Las vistas NO acceden directamente a los repositorios, sino a servicios (clean architecture).*
+
+
+## ▶ Cómo ejecutar el proyecto
+
+## Requisitos
+- Java 21
+- Maven
+
+## Pasos
+
+```bash
+git clone https://github.com/PabloHepp/Vaadin-task-management-app.git
+cd Vaadin-task-management-app
+mvn spring-boot:run
